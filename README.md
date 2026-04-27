@@ -1,0 +1,134 @@
+# Agri Breeding Literature Pipeline
+
+A configurable research engineering pipeline for collecting, filtering, cleaning, deduplicating, and documenting crop breeding literature records from multiple scholarly sources.
+
+This repository open-sources the codebase and workflow for multi-source agricultural breeding literature retrieval, preprocessing, cleaning, deduplication, and reporting. It does not include full raw dumps, full cleaned corpora, or private datasets.
+
+## Supported Sources
+
+- PubMed
+- arXiv
+- bioRxiv
+- medRxiv
+- chemRxiv
+
+PubMed and arXiv are handled through online retrieval workflows. BioRxiv, medRxiv, and chemRxiv are handled through local dump retrieval workflows after source dump preparation.
+
+## Repository Structure
+
+```text
+agri-breeding-literature-pipeline/
+|-- README.md
+|-- CITATION.cff
+|-- configs/                  # Crop, technology, source, and pipeline configuration
+|-- scripts/                  # Entry scripts for retrieval, cleaning, and reporting
+|-- src/agri_lit_pipeline/    # Shared utilities, source layer, cleaning, and reporting modules
+|-- docs/                     # Public documentation and MkDocs pages
+|-- data/                     # Local-only runtime output space, not a versioned corpus
+```
+
+- `configs/` defines the configuration-driven workflow without changing source code.
+- `scripts/` contains thin entry scripts that load configuration and call package modules.
+- `src/agri_lit_pipeline/` contains shared utilities, source-specific retrieval logic, relevance filtering, cleaning and deduplication, and reporting.
+- `docs/` contains the public documentation site and manually written technical notes.
+- `data/` is reserved for local runtime outputs. Full raw dumps, full cleaned corpora, private datasets, caches, and generated corpus files should not be committed.
+
+## Quick Start
+
+The examples below assume PowerShell on Windows. Use equivalent activation commands on other platforms.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Install documentation dependencies only if you want to build or preview the documentation site:
+
+```powershell
+pip install -r requirements-docs.txt
+```
+
+Run lightweight local checks that do not trigger full crawling:
+
+```powershell
+@'
+from pathlib import Path
+import py_compile
+
+root = Path(".")
+for path in list((root / "src").rglob("*.py")) + list((root / "scripts").glob("*.py")):
+    py_compile.compile(str(path), doraise=True)
+print("py_compile ok")
+'@ | .\.venv\Scripts\python.exe -
+```
+
+Representative entry scripts:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_pubmed.py
+.\.venv\Scripts\python.exe scripts\run_arxiv.py
+.\.venv\Scripts\python.exe scripts\download_biorxiv_dump.py
+.\.venv\Scripts\python.exe scripts\run_biorxiv_local.py
+.\.venv\Scripts\python.exe scripts\run_cleaning.py
+.\.venv\Scripts\python.exe scripts\run_report.py
+```
+
+These commands depend on configuration, API/network availability, and local dump availability. The repository should not be interpreted as a turnkey package that can always perform full crawling immediately in a fresh environment.
+
+## Main Workflows
+
+The pipeline is organized around these stages:
+
+1. Configuration loading from `configs/*.yaml`
+2. Query pair generation from crop and technology vocabularies
+3. Source-specific retrieval for PubMed and arXiv
+4. xRxiv local dump search for bioRxiv, medRxiv, and chemRxiv
+5. Relevance filtering for xRxiv candidate records
+6. `retrieval_word` tagging to preserve the query pair context
+7. Cleaning and deduplication across source outputs
+8. Raw inventory reporting by crop, technology, and source
+9. Documentation and CI checks
+
+Online retrieval is handled by `scripts/run_pubmed.py` and `scripts/run_arxiv.py`. Local dump retrieval uses `download_*_dump.py` followed by `run_*_local.py`. Cleaning is handled by `scripts/run_cleaning.py`, and raw inventory reporting is handled by `scripts/run_report.py`.
+
+Build the documentation site with:
+
+```powershell
+python -m mkdocs build
+```
+
+or, if using the local virtual environment:
+
+```powershell
+.\.venv\Scripts\python.exe -m mkdocs build
+```
+
+## Documentation
+
+Start with:
+
+- [Architecture](docs/architecture.md)
+- [Pipeline Overview](docs/pipeline_overview.md)
+- [Configuration](docs/configuration.md)
+- [Scripts Guide](docs/scripts_guide.md)
+- [Project Structure](docs/project_structure.md)
+- [Known Limitations](docs/known_limitations.md)
+- [Smoke Test](docs/smoke_test.md)
+
+## Known Limitations
+
+- xRxiv relevance filtering is still under iterative refinement.
+- bioRxiv filtering is designed to reduce clearly irrelevant cross-domain noise but may still contain false positives and false negatives.
+- medRxiv and chemRxiv are treated more conservatively because their candidate retrieval results are noisier for agricultural breeding use cases.
+- The current pipeline is a research engineering codebase, not a fully productized turnkey package.
+- This repository does not include full raw dumps, full cleaned corpora, or private datasets.
+- The raw inventory report is not a final cleaned quality evaluation.
+
+## Citation
+
+Citation metadata is provided in [CITATION.cff](CITATION.cff). Please update the repository URL there before publishing under the lab GitHub account if the URL has changed.
+
+## License
+
+This project is licensed under the [Apache License 2.0](LICENSE).

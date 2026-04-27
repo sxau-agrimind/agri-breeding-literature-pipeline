@@ -1,0 +1,48 @@
+# 数据源级别配置
+# 设置哪些源启用；各源是 API 模式还是 local dump 模式；dump 和 输出目录放哪；
+# 设置单源重试、休眠、是否跳过已有结果
+
+version: 1
+
+pubmed:
+  enabled: true  # 可用性
+  mode: api  # 走在线 paperscraperAPI
+  output_dir: data/raw/pubmed  # 输出目录
+  skip_if_exists: true  # 重复性跳过
+  sleep_seconds: 2  # 成功后休眠 2 秒
+  max_retries: 3
+
+arxiv:
+  enabled: true
+  mode: api
+  output_dir: data/raw/arxiv
+  skip_if_exists: true
+  sleep_seconds: 5
+  max_retries: 3
+  rate_limit_sleep_seconds: 60  # 429 报错后 60 秒休眠
+  network_retry_sleep_seconds: 15  # 普通网络异常 15 秒后重试
+  use_strict_query_string: true
+
+biorxiv:
+  enabled: true
+  mode: local_dump  # 先下载全量 dump 再本地检索
+  dump_dir: data/private/server_dumps/biorxiv  # 全量 dump 存储目录
+  output_dir: data/raw/biorxiv  # 本地检索处理后输出目录
+  skip_if_exists: true
+  note: primary xRxiv source for crop-breeding literature
+
+medrxiv:
+  enabled: true
+  mode: local_dump
+  dump_dir: data/private/server_dumps/medrxiv
+  output_dir: data/raw/medrxiv
+  skip_if_exists: true
+  note: supported but expected low relevance for crop-breeding literature
+
+chemrxiv:
+  enabled: true
+  mode: local_dump
+  dump_dir: data/private/server_dumps/chemrxiv
+  output_dir: data/raw/chemrxiv
+  skip_if_exists: true
+  note: supported but expected low relevance for crop-breeding literature

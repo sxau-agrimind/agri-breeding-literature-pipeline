@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  documentation-and-smoke-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Python compile check
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import py_compile
+
+          root = Path(".")
+          for path in list((root / "src").rglob("*.py")) + list((root / "scripts").glob("*.py")):
+              py_compile.compile(str(path), doraise=True)
+          print("py_compile ok")
+          PY
+
+      - name: Entry script import smoke test
+        run: |
+          python - <<'PY'
+          import runpy
+
+          scripts = [
+              "scripts/run_pubmed.py",
+              "scripts/run_arxiv.py",
+              "scripts/download_biorxiv_dump.py",
+              "scripts/run_biorxiv_local.py",
+              "scripts/download_medrxiv_dump.py",
+              "scripts/run_medrxiv_local.py",
+              "scripts/download_chemrxiv_dump.py",
+              "scripts/run_chemrxiv_local.py",
+              "scripts/run_cleaning.py",
+              "scripts/run_report.py",
+          ]
+
+          for script in scripts:
+              runpy.run_path(script, run_name="__ci_smoke_test__")
+              print(f"import ok: {script}")
+          PY

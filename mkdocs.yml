@@ -1,0 +1,20 @@
+site_name: Agri Breeding Literature Pipeline
+site_description: Documentation for the agri-breeding-literature-pipeline repository.
+docs_dir: docs
+theme:
+  name: mkdocs
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Project Structure: project_structure.md
+  - Configuration: configuration.md
+  - Pipeline Overview: pipeline_overview.md
+  - Scripts Guide: scripts_guide.md
+  - Developer Notes: developer_notes.md
+  - Technical Overview: technical_report.md
+  - Maintenance Notes: maintenance_notes.md
+  - Known Limitations: known_limitations.md
