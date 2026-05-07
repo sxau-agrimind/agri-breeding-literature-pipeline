@@ -31,6 +31,12 @@ This repository open-sources the codebase and workflow for multi-source agricult
 
 PubMed and arXiv are handled through online retrieval workflows. BioRxiv, medRxiv, and chemRxiv are handled through local dump retrieval workflows after source dump preparation.
 
+## Core Dependency: paperscraper
+
+This repository uses [`paperscraper`](https://github.com/jannisborn/paperscraper) as the underlying retrieval backend. PubMed retrieval is delegated to `paperscraper.pubmed`, arXiv retrieval is delegated to `paperscraper.arxiv`, and bioRxiv, medRxiv, and chemRxiv dump download/local search rely on `paperscraper.get_dumps` and `paperscraper.load_dumps`.
+
+The repository adds configuration-driven query generation, source-specific adaptation, relevance filtering, `retrieval_word` tagging, cleaning, deduplication, and reporting around this backend. Upstream API and dump behavior may change over time, so reproducibility depends partly on the installed `paperscraper` version. The tested version is recorded in [requirements.txt](requirements.txt).
+
 ## Repository Structure
 
 ```text

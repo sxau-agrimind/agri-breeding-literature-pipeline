@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 This project follows semantic versioning in spirit, although it is currently a research engineering repository rather than a packaged library.
 
+## [Unreleased]
+
+### Documentation
+
+- Clarified the role of `paperscraper` as the retrieval backend and documented dependency-version considerations.
+
 ## [0.1.0] - 2026-04-21
 
 ### Added

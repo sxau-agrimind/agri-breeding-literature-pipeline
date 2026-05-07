@@ -30,6 +30,8 @@ PubMed retrieval is started through `scripts/run_pubmed.py` and implemented in `
 
 arXiv retrieval is started through `scripts/run_arxiv.py` and implemented in `sources/arxiv.py`. The arXiv source layer can convert query pairs into stricter query strings.
 
+The source adapters wrap `paperscraper` retrieval APIs rather than reimplementing all upstream source clients from scratch. This repository adds configuration-driven query generation, source-specific adaptation, relevance filtering, tagging, cleaning, and reporting around that backend.
+
 ## Stage 4: xRxiv Local Dump Search
 
 bioRxiv, medRxiv, and chemRxiv use a dump-first workflow:
@@ -45,6 +47,8 @@ Local search is then run through:
 - `scripts/run_chemrxiv_local.py`
 
 Shared xRxiv behavior lives in `src/agri_lit_pipeline/sources/xrxiv.py`.
+
+The xRxiv dump download and local-search workflow relies on `paperscraper.get_dumps` and `paperscraper.load_dumps`. Changes in upstream dump availability or `paperscraper` behavior can affect reproducibility.
 
 ## Stage 5: Relevance Filtering
 

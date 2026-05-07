@@ -41,6 +41,12 @@ Versioned release content does not include:
 
 xRxiv relevance filtering remains under iterative refinement. bioRxiv uses a relaxed source-specific filtering policy, while medRxiv and chemRxiv use stricter policies because their candidate retrieval results are noisier for agricultural breeding use cases.
 
+## Dependency Version Policy
+
+The repository version tracks the lab-maintained codebase and workflow. Runtime retrieval behavior also depends on third-party libraries, especially `paperscraper`, which provides the PubMed, arXiv, xRxiv dump download, and xRxiv local-search backend used by the source layer.
+
+Future releases should record tested dependency versions in `requirements.txt`. When `paperscraper` is upgraded, maintainers should revalidate source-layer behavior, lightweight smoke tests, and any workflows that depend on upstream APIs or local dump loading.
+
 ## Future Directions
 
 Potential future versions may include:
