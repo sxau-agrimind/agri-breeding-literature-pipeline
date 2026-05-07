@@ -9,9 +9,10 @@
 3. [pipeline_overview.md](pipeline_overview.md)
 4. [configuration.md](configuration.md)
 5. [scripts_guide.md](scripts_guide.md)
-6. [developer_notes.md](developer_notes.md)
-7. [known_limitations.md](known_limitations.md)
-8. [smoke_test.md](smoke_test.md)
+6. [versioning.md](versioning.md)
+7. [developer_notes.md](developer_notes.md)
+8. [known_limitations.md](known_limitations.md)
+9. [smoke_test.md](smoke_test.md)
 
 ## Document Roles
 
@@ -21,6 +22,7 @@
 - [pipeline_overview.md](pipeline_overview.md) describes the end-to-end stages from configuration to reporting.
 - [scripts_guide.md](scripts_guide.md) describes major entry scripts and typical commands.
 - [developer_notes.md](developer_notes.md) records engineering decisions and maintenance boundaries.
+- [versioning.md](versioning.md) explains the current public release, versioning policy, and data-versioning boundary.
 - [known_limitations.md](known_limitations.md) summarizes current limitations and expected future refinement areas.
 - [smoke_test.md](smoke_test.md) provides local checks that do not trigger full crawling.
 - [dataset_schema.md](dataset_schema.md) documents stable JSONL fields used by raw and cleaned stages.

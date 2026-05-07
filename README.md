@@ -1,8 +1,25 @@
 # Agri Breeding Literature Pipeline
 
+[![CI](https://github.com/sxau-agrimind/agri-breeding-literature-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/sxau-agrimind/agri-breeding-literature-pipeline/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![Version](https://img.shields.io/badge/Version-v0.1.0-informational)
+![License](https://img.shields.io/badge/License-Apache--2.0-blue)
+![Docs](https://img.shields.io/badge/Docs-MkDocs-green)
+![Status](https://img.shields.io/badge/Status-Research%20Engineering-orange)
+![Data](https://img.shields.io/badge/Data-not%20included-lightgrey)
+![Sources](https://img.shields.io/badge/Sources-PubMed%20%7C%20arXiv%20%7C%20xRxiv-blueviolet)
+
 A configurable research engineering pipeline for collecting, filtering, cleaning, deduplicating, and documenting crop breeding literature records from multiple scholarly sources.
 
 This repository open-sources the codebase and workflow for multi-source agricultural breeding literature retrieval, preprocessing, cleaning, deduplication, and reporting. It does not include full raw dumps, full cleaned corpora, or private datasets.
+
+## Release Status
+
+- Current release: `v0.1.0`
+- Repository type: research engineering codebase
+- Maintainer: AgriMind Research Group, Shanxi Agricultural University
+- Supported sources: PubMed, arXiv, bioRxiv, medRxiv, chemRxiv
+- Data policy: raw dumps and cleaned corpora are not versioned in Git
 
 ## Supported Sources
 
@@ -113,8 +130,15 @@ Start with:
 - [Configuration](docs/configuration.md)
 - [Scripts Guide](docs/scripts_guide.md)
 - [Project Structure](docs/project_structure.md)
+- [Versioning](docs/versioning.md)
 - [Known Limitations](docs/known_limitations.md)
 - [Smoke Test](docs/smoke_test.md)
+
+## Versioning
+
+This repository follows semantic versioning in spirit. `v0.1.0` is the initial public lab release of the codebase and workflow.
+
+Future versions may improve source adapters, relevance filtering rules, tests, documentation, and packaging. Dataset outputs are not versioned in Git; local raw dumps, generated JSONL files, cleaned corpora, and private datasets remain outside the release scope.
 
 ## Known Limitations
 
@@ -127,7 +151,7 @@ Start with:
 
 ## Citation
 
-Citation metadata is provided in [CITATION.cff](CITATION.cff). Please update the repository URL there before publishing under the lab GitHub account if the URL has changed.
+Citation metadata is provided in [CITATION.cff](CITATION.cff).
 
 ## License
 

@@ -23,8 +23,8 @@ license: "Apache-2.0"
 version: "0.1.0"
 date-released: 2026-04-21
 
-repository-code: "https://github.com/EuphoniumKumiko/agri-breeding-literature-pipeline"
-url: "https://github.com/EuphoniumKumiko/agri-breeding-literature-pipeline"
+repository-code: "https://github.com/sxau-agrimind/agri-breeding-literature-pipeline"
+url: "https://github.com/sxau-agrimind/agri-breeding-literature-pipeline"
 
 keywords:
   - agriculture

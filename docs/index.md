@@ -21,9 +21,10 @@ The repository does not include full raw dumps, full cleaned corpora, or private
 3. [Configuration](configuration.md)
 4. [Scripts Guide](scripts_guide.md)
 5. [Project Structure](project_structure.md)
-6. [Developer Notes](developer_notes.md)
-7. [Known Limitations](known_limitations.md)
-8. [Smoke Test](smoke_test.md)
+6. [Versioning](versioning.md)
+7. [Developer Notes](developer_notes.md)
+8. [Known Limitations](known_limitations.md)
+9. [Smoke Test](smoke_test.md)
 
 ## Important Boundaries
 

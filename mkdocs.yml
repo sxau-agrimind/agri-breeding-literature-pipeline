@@ -15,6 +15,7 @@ nav:
   - Pipeline Overview: pipeline_overview.md
   - Scripts Guide: scripts_guide.md
   - Developer Notes: developer_notes.md
+  - Versioning: versioning.md
   - Technical Overview: technical_report.md
   - Maintenance Notes: maintenance_notes.md
   - Known Limitations: known_limitations.md
