@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/sxau-agrimind/agri-breeding-literature-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/sxau-agrimind/agri-breeding-literature-pipeline/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
+![paperscraper](https://img.shields.io/badge/paperscraper-0.3.6-blueviolet)
 ![Version](https://img.shields.io/badge/Version-v0.1.0-informational)
 ![License](https://img.shields.io/badge/License-Apache--2.0-blue)
 ![Docs](https://img.shields.io/badge/Docs-MkDocs-green)
