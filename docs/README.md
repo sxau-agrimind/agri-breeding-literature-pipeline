@@ -9,10 +9,11 @@
 3. [pipeline_overview.md](pipeline_overview.md)
 4. [configuration.md](configuration.md)
 5. [scripts_guide.md](scripts_guide.md)
-6. [versioning.md](versioning.md)
-7. [developer_notes.md](developer_notes.md)
-8. [known_limitations.md](known_limitations.md)
-9. [smoke_test.md](smoke_test.md)
+6. [xrxiv_retrieval_modes.md](xrxiv_retrieval_modes.md)
+7. [versioning.md](versioning.md)
+8. [developer_notes.md](developer_notes.md)
+9. [known_limitations.md](known_limitations.md)
+10. [smoke_test.md](smoke_test.md)
 
 ## Document Roles
 
@@ -21,6 +22,7 @@
 - [configuration.md](configuration.md) explains how the four YAML configuration files drive the workflow.
 - [pipeline_overview.md](pipeline_overview.md) describes the end-to-end stages from configuration to reporting.
 - [scripts_guide.md](scripts_guide.md) describes major entry scripts and typical commands.
+- [xrxiv_retrieval_modes.md](xrxiv_retrieval_modes.md) explains filtered and coarse xRxiv local retrieval modes.
 - [developer_notes.md](developer_notes.md) records engineering decisions and maintenance boundaries.
 - [versioning.md](versioning.md) explains the current public release, versioning policy, and data-versioning boundary.
 - [known_limitations.md](known_limitations.md) summarizes current limitations and expected future refinement areas.

@@ -9,6 +9,7 @@ This project follows semantic versioning in spirit, although it is currently a r
 ### Documentation
 
 - Clarified the role of `paperscraper` as the retrieval backend and documented dependency-version considerations.
+- Documented xRxiv filtered and coarse retrieval modes, including how to disable bioRxiv relevance filtering for exploratory retrieval.
 
 ## [0.1.0] - 2026-04-21
 

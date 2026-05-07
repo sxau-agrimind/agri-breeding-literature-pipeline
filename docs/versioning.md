@@ -41,6 +41,8 @@ Versioned release content does not include:
 
 xRxiv relevance filtering remains under iterative refinement. bioRxiv uses a relaxed source-specific filtering policy, while medRxiv and chemRxiv use stricter policies because their candidate retrieval results are noisier for agricultural breeding use cases.
 
+The default relevance filtering policy is part of the codebase version. Coarse retrieval mode is available for users who want unfiltered candidate records from local xRxiv search, but coarse outputs are not considered curated corpus releases.
+
 ## Dependency Version Policy
 
 The repository version tracks the lab-maintained codebase and workflow. Runtime retrieval behavior also depends on third-party libraries, especially `paperscraper`, which provides the PubMed, arXiv, xRxiv dump download, and xRxiv local-search backend used by the source layer.

@@ -58,6 +58,17 @@ The underlying `paperscraper` behavior may influence where downloaded dump files
 
 Searches a local bioRxiv dump and applies bioRxiv-oriented relevance filtering.
 
+By default, `configs/sources.yaml` sets:
+
+```yaml
+biorxiv:
+  enable_relevance_filter: true
+```
+
+This filtered mode is recommended for the default lab workflow. For coarse retrieval experiments, set `enable_relevance_filter: false`. Coarse mode writes all valid local search candidates returned by `paperscraper`, which can increase recall but also increases noise. Coarse output is not a curated corpus.
+
+When switching between filtered and coarse modes, use a separate `output_dir`, move existing outputs, or set `skip_if_exists: false` intentionally. Otherwise, existing JSONL files may be skipped. See [xRxiv Retrieval Modes](xrxiv_retrieval_modes.md).
+
 ### `scripts/run_medrxiv_local.py`
 
 Searches a local medRxiv dump with a more conservative relevance filtering policy.

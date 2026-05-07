@@ -9,6 +9,7 @@ The repository does not include full raw dumps, full cleaned corpora, or private
 - PubMed and arXiv online retrieval
 - bioRxiv, medRxiv, and chemRxiv local dump retrieval
 - Source-specific relevance filtering for xRxiv records
+- Filtered and coarse xRxiv local retrieval modes
 - `retrieval_word` tagging for query pair traceability
 - Cleaning and deduplication across source outputs
 - Raw inventory reporting
@@ -20,11 +21,12 @@ The repository does not include full raw dumps, full cleaned corpora, or private
 2. [Pipeline Overview](pipeline_overview.md)
 3. [Configuration](configuration.md)
 4. [Scripts Guide](scripts_guide.md)
-5. [Project Structure](project_structure.md)
-6. [Versioning](versioning.md)
-7. [Developer Notes](developer_notes.md)
-8. [Known Limitations](known_limitations.md)
-9. [Smoke Test](smoke_test.md)
+5. [xRxiv Retrieval Modes](xrxiv_retrieval_modes.md)
+6. [Project Structure](project_structure.md)
+7. [Versioning](versioning.md)
+8. [Developer Notes](developer_notes.md)
+9. [Known Limitations](known_limitations.md)
+10. [Smoke Test](smoke_test.md)
 
 ## Important Boundaries
 

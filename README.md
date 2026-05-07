@@ -115,6 +115,8 @@ The pipeline is organized around these stages:
 
 Online retrieval is handled by `scripts/run_pubmed.py` and `scripts/run_arxiv.py`. Local dump retrieval uses `download_*_dump.py` followed by `run_*_local.py`. Cleaning is handled by `scripts/run_cleaning.py`, and raw inventory reporting is handled by `scripts/run_report.py`.
 
+By default, xRxiv local retrieval applies source-specific relevance filtering. Users who need coarse bioRxiv retrieval can set `enable_relevance_filter: false` in `configs/sources.yaml`; see [xRxiv Retrieval Modes](docs/xrxiv_retrieval_modes.md).
+
 Build the documentation site with:
 
 ```powershell
@@ -135,6 +137,7 @@ Start with:
 - [Pipeline Overview](docs/pipeline_overview.md)
 - [Configuration](docs/configuration.md)
 - [Scripts Guide](docs/scripts_guide.md)
+- [xRxiv Retrieval Modes](docs/xrxiv_retrieval_modes.md)
 - [Project Structure](docs/project_structure.md)
 - [Versioning](docs/versioning.md)
 - [Known Limitations](docs/known_limitations.md)

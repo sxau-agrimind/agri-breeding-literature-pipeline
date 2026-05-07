@@ -14,6 +14,7 @@ nav:
   - Configuration: configuration.md
   - Pipeline Overview: pipeline_overview.md
   - Scripts Guide: scripts_guide.md
+  - xRxiv Retrieval Modes: xrxiv_retrieval_modes.md
   - Developer Notes: developer_notes.md
   - Versioning: versioning.md
   - Technical Overview: technical_report.md
